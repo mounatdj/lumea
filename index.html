@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lumea Collective</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Lumea Collective</h1>
+<h5>Luméa Collective is a modern academy that helps young creators grow on social media</h5>
+<h2>Create Your Profile</h2>
+
+<form id="myForm">
+  <label>Profile Picture</label>
+  <input type="file" id="image" accept="image/*" required>
+
+  <label>Full Name</label>
+  <input type="text" id="name" required>
+
+  <label>Username</label>
+  <input type="text" id="username" required>
+
+  <label>Password</label>
+  <input type="password" id="password" required>
+
+  <label>Email</label>
+  <input type="email" id="email" required>
+
+  <label>Phone Number</label>
+  <input type="tel" id="phone" required>
+
+  <label>Gender</label>
+  <div class="options">
+    <input type="radio" name="gender" id="female" value="Female" required>
+    <label for="female">Female</label>
+
+    <input type="radio" name="gender" id="male" value="Male">
+    <label for="male">Male</label>
+  </div>
+
+  <label>Goals</label>
+  <div class="options">
+    <input type="checkbox" id="goal1" class="Goals" value="Grow my audience">
+    <label for="goal1">Grow my audience</label>
+
+    <input type="checkbox" id="goal2" class="Goals" value="Earn money">
+    <label for="goal2">Earn money</label>
+
+    <input type="checkbox" id="goal3" class="Goals" value="Learn new skills">
+    <label for="goal3">Learn new skills</label>
+  </div>
+
+  <label>Niche</label>
+  <select id="niche" required>
+    <option value="">Choose your content type</option>
+    <option value="Beauty">Beauty</option>
+    <option value="Fashion">Fashion</option>
+    <option value="Lifestyle">Lifestyle</option>
+    <option value="Travel">Travel</option>
+    <option value="Food">Food</option>
+    <option value="Fitness">Fitness</option>
+    <option value="Education">Education</option>
+  </select>
+
+  <label>Bio</label>
+  <textarea id="bio" placeholder="Tell us about yourself..."></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div style="text-align: center; margin: 20px 0;">
+  <a href="result.html" class="page2-link">View Profile Result</a>
+</div>
+
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const reader = new FileReader();
+  const imageFile = document.getElementById("image").files[0];
+
+  reader.onload = function() {
+    const goals = [];
+    document.querySelectorAll(".Goals:checked").forEach((item) => {
+      goals.push(item.value);
+    });
+
+    const data = {
+      image: reader.result,
+      name: document.getElementById("name").value,
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      gender: document.querySelector('input[name="gender"]:checked').value,
+      goals: goals.join(", "),
+      niche: document.getElementById("niche").value,
+      bio: document.getElementById("bio").value
+    };
+
+    localStorage.setItem("formData", JSON.stringify(data));
+    window.location.href = "result.html";
+  };
+
+  reader.readAsDataURL(imageFile);
+});
+</script>
+
+</body>
+</html>

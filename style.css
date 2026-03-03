@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* ---------------- Body ---------------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ---------------- Headers ---------------- */
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #2c2c2c;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+h5 {
+  color: #555555;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+h2 {
+  color: #2c2c2c;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ---------------- Form ---------------- */
+form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  transition: transform 0.3s;
+}
+
+form:hover {
+  transform: translateY(-2px);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333333;
+  font-size: 14px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 5px;
+  border-radius: 12px;
+  border: 1px solid #d1d1d1;
+  font-size: 14px;
+  color: #2c2c2c;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #8e44ad;
+  box-shadow: 0 0 8px rgba(159, 117, 177, 0.3);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+/* ---------------- Options (Checkbox & Radio Cards) ---------------- */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+.options input[type="checkbox"],
+.options input[type="radio"] {
+  display: none;
+}
+
+.options input[type="checkbox"] + label,
+.options input[type="radio"] + label {
+  padding: 10px 20px;
+  border: 1px solid #daaeec;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #ffffff;
+  color: #c286db;
+  text-align: center;
+}
+
+.options input[type="checkbox"]:checked + label,
+.options input[type="radio"]:checked + label {
+  background: #9e74af;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(142, 68, 173, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ---------------- Buttons ---------------- */
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: linear-gradient(135deg, #9f75b1, #b28ecf);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #732d91, #9e74af);
+  transform: translateY(-2px);
+}
+
+/* ---------------- Profile Card ---------------- */
+.profile-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  margin-top: 30px;
+}
+
+.profile-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(142, 68, 173, 0.35);
+  border: 3px solid #b28ecf;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(142, 68, 173, 0.45);
+}
+
+.profile-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  color: #555555;
+  font-size: 16px;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.profile-card p strong {
+  color: #2c2c2c;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  form, .profile-card {
+    padding: 25px;
+  }
+
+  .profile-card img {
+    width: 100px;
+    height: 100px;
+  }
+}

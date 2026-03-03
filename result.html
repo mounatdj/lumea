@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumea Collective - Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Your Profile</h1>
+<h5>Here’s the information you submitted</h5>
+
+<div class="profile-card">
+  <img id="profileImage" src="" alt="Profile Picture">
+  <h2 id="displayName"></h2>
+  <p><strong>Username:</strong> <span id="displayUsername"></span></p>
+  <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+  <p><strong>Phone:</strong> <span id="displayPhone"></span></p>
+  <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+  <p><strong>Goals:</strong> <span id="displayGoals"></span></p>
+  <p><strong>Niche:</strong> <span id="displayNiche"></span></p>
+  <p><strong>Bio:</strong></p>
+  <p id="displayBio"></p>
+</div>
+
+<script>
+  const data = JSON.parse(localStorage.getItem("formData"));
+
+  if (data) {
+    document.getElementById("profileImage").src = data.image || '';
+    document.getElementById("displayName").textContent = data.name || '';
+    document.getElementById("displayUsername").textContent = data.username || '';
+    document.getElementById("displayEmail").textContent = data.email || '';
+    document.getElementById("displayPhone").textContent = data.phone || '';
+    document.getElementById("displayGender").textContent = data.gender || '';
+    document.getElementById("displayGoals").textContent = data.goals || '';
+    document.getElementById("displayNiche").textContent = data.niche || '';
+    document.getElementById("displayBio").textContent = data.bio || '';
+  }
+</script>
+
+</body>
+</html>
